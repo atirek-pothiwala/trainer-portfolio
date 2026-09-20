@@ -18,6 +18,7 @@ class InstagramConnectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
+    final colors = context.colorScheme;
     final handleLabel = formatInstagramHandle(profile.instagramHandle);
 
     return Column(
@@ -83,31 +84,43 @@ class InstagramConnectCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  'DM your goal — we reply within 24 hours.',
+                  '1. Open Instagram and search for $handleLabel\n'
+                  '2. Tap Follow for workouts & nutrition tips\n'
+                  '3. Send a DM with your goal (fat loss, muscle, sport, etc.)\n'
+                  '4. Your coach or the team will reply within 24 hours',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: tokens.textSecondary,
-                        height: 1.45,
+                        height: 1.5,
                       ),
                 ),
                 const SizedBox(height: 16),
-                InstagramGradientButton(
-                  label: 'Open Instagram',
-                  onPressed: () => openExternalUrl(profile.instagramUrl),
-                ),
-                const SizedBox(height: 10),
-                Center(
-                  child: TextButton.icon(
-                    onPressed: () =>
-                        openExternalUrl(profile.youtubeChannelUrl),
-                    icon: BrandSocialIcon.youtube(
-                      color: tokens.youtube,
-                      size: 18,
+                Row(
+                  children: [
+                    Expanded(
+                      child: InstagramGradientButton(
+                        label: 'Open Instagram',
+                        onPressed: () =>
+                            openExternalUrl(profile.instagramUrl),
+                      ),
                     ),
-                    label: Text(
-                      'YouTube channel',
-                      style: TextStyle(color: tokens.textSecondary),
+                    const SizedBox(width: 10),
+                    OutlinedButton(
+                      onPressed: () =>
+                          openExternalUrl(profile.youtubeChannelUrl),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: colors.onSurface,
+                        side: BorderSide(color: tokens.border),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 14,
+                          horizontal: 16,
+                        ),
+                      ),
+                      child: BrandSocialIcon.youtube(
+                        color: tokens.youtube,
+                        size: 22,
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),
