@@ -1,6 +1,6 @@
 {
-    "name": "hemant_fitness",
-    "short_name": "hemant_fitness",
+    "name": "trainer_portfolio",
+    "short_name": "trainer_portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

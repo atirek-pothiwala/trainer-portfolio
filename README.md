@@ -1,6 +1,6 @@
-# Hemant Rathod Fitness
+# Fit Coach (Trainer Portfolio)
 
-Flutter app (mobile, web, and desktop targets) for trainer **Hemant Rathod** — Phase 1 portfolio with BLoC architecture. Phases 2 (Hevy-style workouts) and 3 (consulting) are scaffolded as coming-soon tabs.
+Flutter app (mobile, web, and desktop targets) for a personal trainer portfolio — Phase 1 with BLoC architecture. Phases 2 (Hevy-style workouts) and 3 (consulting) are scaffolded as coming-soon tabs.
 
 ## Stack
 

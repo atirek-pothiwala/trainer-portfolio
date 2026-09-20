@@ -51,7 +51,7 @@ class _MainShellPageState extends State<MainShellPage> {
             title: 'Consultant service',
             description:
                 'Book 1:1 video calls, share goals, and get personalized program '
-                'reviews from Hemant. Scheduling and payments will live here.',
+                'reviews from your coach. Scheduling and payments will live here.',
             icon: Icons.video_call_outlined,
           ),
         ],

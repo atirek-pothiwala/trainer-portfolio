@@ -58,7 +58,7 @@ class InstagramConnectCard extends StatelessWidget {
                   '1. Open Instagram and search for ${profile.instagramHandle}\n'
                   '2. Tap Follow for workouts & nutrition tips\n'
                   '3. Send a DM with your goal (fat loss, muscle, sport, etc.)\n'
-                  '4. Hemant or the team will reply within 24 hours',
+                  '4. Your coach or the team will reply within 24 hours',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: AppColors.textSecondary,
                         height: 1.5,

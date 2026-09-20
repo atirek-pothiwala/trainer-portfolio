@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.hemantathod" "\0"
-            VALUE "FileDescription", "hemant_fitness" "\0"
+            VALUE "CompanyName", "com.fitcoach" "\0"
+            VALUE "FileDescription", "trainer_portfolio" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "hemant_fitness" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 com.hemantathod. All rights reserved." "\0"
-            VALUE "OriginalFilename", "hemant_fitness.exe" "\0"
-            VALUE "ProductName", "hemant_fitness" "\0"
+            VALUE "InternalName", "trainer_portfolio" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 com.fitcoach. All rights reserved." "\0"
+            VALUE "OriginalFilename", "trainer_portfolio.exe" "\0"
+            VALUE "ProductName", "trainer_portfolio" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

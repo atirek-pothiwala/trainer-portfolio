@@ -7,23 +7,23 @@ import '../models/trainer_profile.dart';
 /// Dummy portfolio content for Phase 1. Replace with API/CMS later.
 class LocalPortfolioData {
   static TrainerProfile get trainer => TrainerProfile(
-        name: 'Hemant Rathod',
+        name: 'Jordan Reed',
         title: 'Certified Strength & Conditioning Coach',
         tagline: 'Build strength. Move better. Transform for life.',
         bio:
-            'Hemant Rathod helps busy professionals and athletes train with '
-            'purpose. His programs blend evidence-based strength training, '
-            'mobility work, and sustainable nutrition habits. Whether your goal '
-            'is fat loss, muscle gain, or athletic performance, Hemant designs '
-            'plans you can follow consistently — on mobile, at the gym, or at home.',
+            'Jordan helps busy professionals and athletes train with purpose. '
+            'Programs blend evidence-based strength training, mobility work, '
+            'and sustainable nutrition habits. Whether your goal is fat loss, '
+            'muscle gain, or athletic performance, every plan is built to follow '
+            'consistently — on mobile, at the gym, or at home.',
         profileImageUrl:
             'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80',
         yearsExperience: 12,
         clientsTrained: 850,
         location: 'Mumbai, India · Online worldwide',
-        instagramHandle: '@hemant.rathod.fit',
-        instagramUrl: 'https://instagram.com/hemant.rathod.fit',
-        youtubeChannelUrl: 'https://youtube.com/@hemantRathodFit',
+        instagramHandle: '@fit.coach.jordan',
+        instagramUrl: 'https://instagram.com/fit.coach.jordan',
+        youtubeChannelUrl: 'https://youtube.com/@FitCoachJordan',
         skills: const [
           Skill(name: 'Hypertrophy Programming', level: 5, category: 'Strength'),
           Skill(name: 'Fat Loss & Body Recomp', level: 5, category: 'Nutrition'),
@@ -69,7 +69,7 @@ class LocalPortfolioData {
             result: 'Lost 18 kg in 9 months',
             duration: '9 months',
             quote:
-                'Hemant never made me feel like I was on a "diet." The workouts '
+                'My coach never made me feel like I was on a "diet." The workouts '
                 'were challenging but doable, and I finally understand how to eat.',
             imageUrl:
                 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80',

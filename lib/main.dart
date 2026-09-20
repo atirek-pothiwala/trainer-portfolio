@@ -4,5 +4,5 @@ import 'app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const HemantFitnessApp());
+  runApp(const TrainerPortfolioApp());
 }

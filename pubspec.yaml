@@ -1,5 +1,5 @@
-name: hemant_fitness
-description: "A new Flutter project."
+name: trainer_portfolio
+description: "Trainer portfolio and fitness app (Flutter mobile & web)."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

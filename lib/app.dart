@@ -7,8 +7,8 @@ import 'features/portfolio/bloc/portfolio_bloc.dart';
 import 'features/portfolio/bloc/portfolio_event.dart';
 import 'features/shell/main_shell_page.dart';
 
-class HemantFitnessApp extends StatelessWidget {
-  const HemantFitnessApp({super.key});
+class TrainerPortfolioApp extends StatelessWidget {
+  const TrainerPortfolioApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HemantFitnessApp extends StatelessWidget {
           repository: context.read<PortfolioRepository>(),
         )..add(const PortfolioLoadRequested()),
         child: MaterialApp(
-          title: 'Hemant Rathod Fitness',
+          title: 'Fit Coach',
           debugShowCheckedModeBanner: false,
           theme: buildAppTheme(),
           home: const MainShellPage(),

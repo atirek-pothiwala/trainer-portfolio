@@ -1,9 +1,9 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hemant_fitness/data/repositories/portfolio_repository.dart';
-import 'package:hemant_fitness/features/portfolio/bloc/portfolio_bloc.dart';
-import 'package:hemant_fitness/features/portfolio/bloc/portfolio_event.dart';
-import 'package:hemant_fitness/features/portfolio/bloc/portfolio_state.dart';
+import 'package:trainer_portfolio/data/repositories/portfolio_repository.dart';
+import 'package:trainer_portfolio/features/portfolio/bloc/portfolio_bloc.dart';
+import 'package:trainer_portfolio/features/portfolio/bloc/portfolio_event.dart';
+import 'package:trainer_portfolio/features/portfolio/bloc/portfolio_state.dart';
 
 void main() {
   group('PortfolioBloc', () {
@@ -27,7 +27,7 @@ void main() {
         ).having(
           (s) => s.profile?.name,
           'name',
-          'Hemant Rathod',
+          'Jordan Reed',
         ),
       ],
     );
