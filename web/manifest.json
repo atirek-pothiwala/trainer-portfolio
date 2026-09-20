@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0D0F12",
-    "theme_color": "#3DDC97",
+    "theme_color": "#8B5CF6",
     "description": "Trainer portfolio and fitness app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
