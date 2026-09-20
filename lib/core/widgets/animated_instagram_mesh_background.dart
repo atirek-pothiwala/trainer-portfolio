@@ -2,7 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-/// Classic Instagram-style drifting color blobs, tuned for black + violet.
+/// Classic Instagram-style drifting color blobs.
+enum AnimatedMeshPalette { violet, instagram }
+
 class AnimatedInstagramMeshBackground extends StatefulWidget {
   const AnimatedInstagramMeshBackground({
     super.key,
@@ -11,11 +13,13 @@ class AnimatedInstagramMeshBackground extends StatefulWidget {
     this.duration = const Duration(seconds: 12),
     this.vignetteOpacity,
     this.expand = true,
+    this.palette = AnimatedMeshPalette.violet,
   });
 
   final Widget child;
   final BorderRadius borderRadius;
   final Duration duration;
+  final AnimatedMeshPalette palette;
 
   /// Darkens the mesh so foreground text stays readable. Defaults by theme.
   final double? vignetteOpacity;
@@ -66,6 +70,7 @@ class _AnimatedInstagramMeshBackgroundState
                   painter: _MeshPainter(
                     progress: _controller.value,
                     isDark: isDark,
+                    palette: widget.palette,
                   ),
                 );
               },
@@ -86,25 +91,42 @@ class _AnimatedInstagramMeshBackgroundState
 }
 
 class _MeshPainter extends CustomPainter {
-  _MeshPainter({required this.progress, required this.isDark});
+  _MeshPainter({
+    required this.progress,
+    required this.isDark,
+    required this.palette,
+  });
 
   final double progress;
   final bool isDark;
+  final AnimatedMeshPalette palette;
 
   static const _base = Color(0xFF050508);
-  static const _violetDeep = Color(0xFF4C1D95);
-  static const _violetMid = Color(0xFF7C3AED);
-  static const _violetSoft = Color(0xFFA78BFA);
-  static const _violetInk = Color(0xFF2E1065);
+
+  List<Color> get _blobColors => switch (palette) {
+        AnimatedMeshPalette.violet => const [
+            Color(0xFF7C3AED),
+            Color(0xFF4C1D95),
+            Color(0xFFA78BFA),
+            Color(0xFF2E1065),
+          ],
+        AnimatedMeshPalette.instagram => const [
+            Color(0xFFE1306C),
+            Color(0xFFFD1D1D),
+            Color(0xFFF77737),
+            Color(0xFF9B1830),
+          ],
+      };
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Offset.zero & size, Paint()..color = _base);
 
+    final colors = _blobColors;
     final t = progress * 2 * math.pi;
     final blobs = [
       _Blob(
-        color: _violetMid,
+        color: colors[0],
         opacity: isDark ? 0.55 : 0.42,
         radius: size.shortestSide * 0.55,
         center: Offset(
@@ -113,7 +135,7 @@ class _MeshPainter extends CustomPainter {
         ),
       ),
       _Blob(
-        color: _violetDeep,
+        color: colors[1],
         opacity: isDark ? 0.65 : 0.5,
         radius: size.shortestSide * 0.5,
         center: Offset(
@@ -122,7 +144,7 @@ class _MeshPainter extends CustomPainter {
         ),
       ),
       _Blob(
-        color: _violetSoft,
+        color: colors[2],
         opacity: isDark ? 0.35 : 0.28,
         radius: size.shortestSide * 0.45,
         center: Offset(
@@ -131,7 +153,7 @@ class _MeshPainter extends CustomPainter {
         ),
       ),
       _Blob(
-        color: _violetInk,
+        color: colors[3],
         opacity: isDark ? 0.7 : 0.55,
         radius: size.shortestSide * 0.6,
         center: Offset(
@@ -162,7 +184,9 @@ class _MeshPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _MeshPainter oldDelegate) {
-    return oldDelegate.progress != progress || oldDelegate.isDark != isDark;
+    return oldDelegate.progress != progress ||
+        oldDelegate.isDark != isDark ||
+        oldDelegate.palette != palette;
   }
 }
 
