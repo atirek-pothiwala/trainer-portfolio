@@ -1,11 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../core/theme/frosted_surface.dart';
 import '../../../../core/utils/instagram_handle_format.dart';
 import '../../../../core/utils/url_launcher_helper.dart';
-import '../../../../core/widgets/animated_instagram_gradient_border.dart';
 import '../../../../core/widgets/brand_social_icon.dart';
+import '../../../../core/widgets/instagram_gradient_button.dart';
 import '../../../../data/models/trainer_profile.dart';
 import 'section_header.dart';
 
@@ -17,9 +18,7 @@ class InstagramConnectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final colors = context.colorScheme;
     final handleLabel = formatInstagramHandle(profile.instagramHandle);
-    final instagram = tokens.instagram;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,104 +29,87 @@ class InstagramConnectCard extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: AnimatedInstagramGradientBorder(
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: frostedSurface(context),
-                borderRadius: BorderRadius.circular(13.5),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: instagram.withValues(alpha: 0.15),
-                        ),
-                        child: BrandSocialIcon.instagram(
-                          color: instagram,
-                          size: 22,
-                        ),
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              color: frostedSurface(context),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: tokens.border),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 28,
+                      backgroundColor: tokens.surfaceElevated,
+                      backgroundImage: CachedNetworkImageProvider(
+                        profile.profileImageUrl,
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              handleLabel,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(fontWeight: FontWeight.w700),
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              'Follow for workouts, tips & behind-the-scenes',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall
-                                  ?.copyWith(color: tokens.textSecondary),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Send a DM with your goal — fat loss, strength, sport, or '
-                    'general coaching. We typically reply within 24 hours.',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: tokens.textSecondary,
-                          height: 1.5,
-                        ),
-                  ),
-                  const SizedBox(height: 18),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: FilledButton.icon(
-                          onPressed: () =>
-                              openExternalUrl(profile.instagramUrl),
-                          icon: const BrandSocialIcon.instagram(
-                            size: 18,
-                            color: Colors.white,
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            handleLabel,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(fontWeight: FontWeight.w700),
                           ),
-                          label: const Text('Follow on Instagram'),
-                          style: FilledButton.styleFrom(
-                            backgroundColor: instagram,
-                            foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(vertical: 14),
+                          const SizedBox(height: 2),
+                          Text(
+                            'Follow on Instagram',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(
+                                  color: tokens.instagram,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
-                        ),
+                        ],
                       ),
-                      const SizedBox(width: 10),
-                      OutlinedButton(
-                        onPressed: () =>
-                            openExternalUrl(profile.youtubeChannelUrl),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: colors.onSurface,
-                          side: BorderSide(color: tokens.border),
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 14,
-                            horizontal: 16,
-                          ),
-                        ),
-                        child: BrandSocialIcon.youtube(
-                          color: colors.onSurface,
-                          size: 22,
-                        ),
+                    ),
+                    BrandSocialIcon.instagram(
+                      color: tokens.instagram,
+                      size: 22,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+                Text(
+                  'DM your goal — we reply within 24 hours.',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: tokens.textSecondary,
+                        height: 1.45,
                       ),
-                    ],
+                ),
+                const SizedBox(height: 16),
+                InstagramGradientButton(
+                  label: 'Open Instagram',
+                  onPressed: () => openExternalUrl(profile.instagramUrl),
+                ),
+                const SizedBox(height: 10),
+                Center(
+                  child: TextButton.icon(
+                    onPressed: () =>
+                        openExternalUrl(profile.youtubeChannelUrl),
+                    icon: BrandSocialIcon.youtube(
+                      color: tokens.youtube,
+                      size: 18,
+                    ),
+                    label: Text(
+                      'YouTube channel',
+                      style: TextStyle(color: tokens.textSecondary),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
