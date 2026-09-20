@@ -2,55 +2,33 @@ import 'package:flutter/material.dart';
 
 import 'brand_social_icon.dart';
 
-/// Static Instagram brand gradient CTA (pink → red → orange).
+/// Solid Instagram-brand CTA (no gradient ring; frosted strip style).
 class InstagramGradientButton extends StatelessWidget {
   const InstagramGradientButton({
     super.key,
     required this.label,
     required this.onPressed,
+    this.backgroundColor = const Color(0xFFE1306C),
   });
 
   final String label;
   final VoidCallback onPressed;
-
-  static const _gradient = LinearGradient(
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-    colors: [
-      Color(0xFFE1306C),
-      Color(0xFFFD1D1D),
-      Color(0xFFF77737),
-    ],
-  );
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(12),
-        child: Ink(
-          decoration: BoxDecoration(
-            gradient: _gradient,
+    return SizedBox(
+      width: double.infinity,
+      child: FilledButton.icon(
+        onPressed: onPressed,
+        icon: const BrandSocialIcon.instagram(size: 18, color: Colors.white),
+        label: Text(label),
+        style: FilledButton.styleFrom(
+          backgroundColor: backgroundColor,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const BrandSocialIcon.instagram(size: 18, color: Colors.white),
-                const SizedBox(width: 10),
-                Text(
-                  label,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                      ),
-                ),
-              ],
-            ),
           ),
         ),
       ),
