@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../core/theme/frosted_surface.dart';
+import '../../../../core/widgets/brand_social_icon.dart';
 import '../../../../core/utils/url_launcher_helper.dart';
 import '../../../../data/models/social_post.dart';
 import 'section_header.dart';
@@ -31,15 +32,19 @@ class SocialFeedSection extends StatelessWidget {
         ),
         _PlatformBlock(
           title: 'Instagram',
-          icon: Icons.camera_alt_outlined,
-          color: tokens.instagram,
+          leading: BrandSocialIcon.instagram(
+            color: tokens.instagram,
+            size: 20,
+          ),
           posts: instagramPosts,
         ),
         const SizedBox(height: 8),
         _PlatformBlock(
           title: 'YouTube',
-          icon: Icons.play_circle_outline,
-          color: tokens.youtube,
+          leading: BrandSocialIcon.youtube(
+            color: tokens.youtube,
+            size: 20,
+          ),
           posts: youtubePosts,
         ),
       ],
@@ -50,14 +55,12 @@ class SocialFeedSection extends StatelessWidget {
 class _PlatformBlock extends StatelessWidget {
   const _PlatformBlock({
     required this.title,
-    required this.icon,
-    required this.color,
+    required this.leading,
     required this.posts,
   });
 
   final String title;
-  final IconData icon;
-  final Color color;
+  final Widget leading;
   final List<SocialPost> posts;
 
   @override
@@ -69,7 +72,7 @@ class _PlatformBlock extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
           child: Row(
             children: [
-              Icon(icon, color: color, size: 20),
+              leading,
               const SizedBox(width: 8),
               Text(
                 title,

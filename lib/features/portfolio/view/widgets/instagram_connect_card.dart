@@ -5,6 +5,7 @@ import '../../../../core/theme/frosted_surface.dart';
 import '../../../../core/utils/instagram_handle_format.dart';
 import '../../../../core/utils/url_launcher_helper.dart';
 import '../../../../core/widgets/animated_instagram_gradient_border.dart';
+import '../../../../core/widgets/brand_social_icon.dart';
 import '../../../../data/models/trainer_profile.dart';
 import 'section_header.dart';
 
@@ -48,8 +49,7 @@ class InstagramConnectCard extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: instagram.withValues(alpha: 0.15),
                         ),
-                        child: Icon(
-                          Icons.camera_alt_outlined,
+                        child: BrandSocialIcon.instagram(
                           color: instagram,
                           size: 22,
                         ),
@@ -95,7 +95,10 @@ class InstagramConnectCard extends StatelessWidget {
                         child: FilledButton.icon(
                           onPressed: () =>
                               openExternalUrl(profile.instagramUrl),
-                          icon: const Icon(Icons.open_in_new, size: 18),
+                          icon: const BrandSocialIcon.instagram(
+                            size: 18,
+                            color: Colors.white,
+                          ),
                           label: const Text('Follow on Instagram'),
                           style: FilledButton.styleFrom(
                             backgroundColor: instagram,
@@ -116,7 +119,10 @@ class InstagramConnectCard extends StatelessWidget {
                             horizontal: 16,
                           ),
                         ),
-                        child: const Icon(Icons.play_arrow),
+                        child: BrandSocialIcon.youtube(
+                          color: colors.onSurface,
+                          size: 22,
+                        ),
                       ),
                     ],
                   ),
