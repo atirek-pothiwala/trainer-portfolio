@@ -16,6 +16,8 @@ cp -a build/web/. "${WORK_DIR}/"
 
 cd "${WORK_DIR}"
 git init -b gh-pages
+git config user.email "github-actions[bot]@users.noreply.github.com"
+git config user.name "github-actions[bot]"
 git add .
 git commit -m "Deploy Flutter web ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
 
