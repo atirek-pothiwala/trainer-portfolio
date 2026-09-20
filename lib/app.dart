@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/theme/app_branding.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_mode_cubit.dart';
 import 'core/theme/theme_preferences_repository.dart';
@@ -37,7 +38,7 @@ class HemiLiftApp extends StatelessWidget {
         child: BlocBuilder<ThemeModeCubit, ThemeMode>(
           builder: (context, themeMode) {
             return MaterialApp(
-              title: 'HemiLift',
+              title: AppBranding.name,
               debugShowCheckedModeBanner: false,
               theme: buildLightTheme(),
               darkTheme: buildDarkTheme(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/theme/app_theme_tokens.dart';
+import '../../../core/widgets/app_name_text.dart';
 import '../../../data/models/trainer_profile.dart';
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
@@ -92,7 +93,7 @@ class _PortfolioContent extends StatelessWidget {
         slivers: [
           SliverAppBar(
             floating: true,
-            title: const Text('HemiLift'),
+            title: const AppNameText(fontSize: 26),
             actions: [
               IconButton(
                 tooltip: 'Refresh',
