@@ -8,7 +8,7 @@ BASE_HREF="/${REPO_NAME}/"
 flutter pub get
 flutter analyze
 flutter test
-flutter build web --release --base-href "${BASE_HREF}"
+flutter build web --release --base-href "${BASE_HREF}" --pwa-strategy=none
 touch build/web/.nojekyll
 
 WORK_DIR="$(mktemp -d)"
