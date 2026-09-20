@@ -10,6 +10,7 @@ class AnimatedInstagramMeshBackground extends StatefulWidget {
     this.borderRadius = BorderRadius.zero,
     this.duration = const Duration(seconds: 12),
     this.vignetteOpacity,
+    this.expand = true,
   });
 
   final Widget child;
@@ -18,6 +19,9 @@ class AnimatedInstagramMeshBackground extends StatefulWidget {
 
   /// Darkens the mesh so foreground text stays readable. Defaults by theme.
   final double? vignetteOpacity;
+
+  /// When false, sizes to [child] (for use inside scrollables). When true, fills parent.
+  final bool expand;
 
   @override
   State<AnimatedInstagramMeshBackground> createState() =>
@@ -52,7 +56,7 @@ class _AnimatedInstagramMeshBackgroundState
     return ClipRRect(
       borderRadius: widget.borderRadius,
       child: Stack(
-        fit: StackFit.expand,
+        fit: widget.expand ? StackFit.expand : StackFit.passthrough,
         children: [
           Positioned.fill(
             child: AnimatedBuilder(

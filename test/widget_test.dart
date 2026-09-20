@@ -6,7 +6,8 @@ void main() {
     await tester.pumpWidget(const HemiLiftApp());
     await tester.pump();
     expect(find.text('Portfolio'), findsWidgets);
-    await tester.pump(const Duration(milliseconds: 500));
-    expect(find.text('Jordan Reed'), findsWidgets);
+    await tester.pump(const Duration(milliseconds: 800));
+    await tester.pump();
+    expect(find.text('Jordan Reed'), findsOneWidget);
   });
 }

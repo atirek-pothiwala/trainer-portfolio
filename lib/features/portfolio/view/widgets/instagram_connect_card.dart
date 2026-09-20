@@ -27,6 +27,7 @@ class InstagramConnectCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: AnimatedInstagramMeshBackground(
+            expand: false,
             borderRadius: BorderRadius.circular(16),
             vignetteOpacity: isDark ? 0.35 : 0.12,
             child: Container(
