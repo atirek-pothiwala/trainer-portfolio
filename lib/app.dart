@@ -9,8 +9,8 @@ import 'features/portfolio/bloc/portfolio_bloc.dart';
 import 'features/portfolio/bloc/portfolio_event.dart';
 import 'features/shell/main_shell_page.dart';
 
-class TrainerPortfolioApp extends StatelessWidget {
-  const TrainerPortfolioApp({super.key});
+class HemiLiftApp extends StatelessWidget {
+  const HemiLiftApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class TrainerPortfolioApp extends StatelessWidget {
         child: BlocBuilder<ThemeModeCubit, ThemeMode>(
           builder: (context, themeMode) {
             return MaterialApp(
-              title: 'Fit Coach',
+              title: 'HemiLift',
               debugShowCheckedModeBanner: false,
               theme: buildLightTheme(),
               darkTheme: buildDarkTheme(),

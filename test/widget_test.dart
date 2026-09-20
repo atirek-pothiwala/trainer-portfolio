@@ -3,7 +3,7 @@ import 'package:trainer_portfolio/app.dart';
 
 void main() {
   testWidgets('App loads portfolio shell', (tester) async {
-    await tester.pumpWidget(const TrainerPortfolioApp());
+    await tester.pumpWidget(const HemiLiftApp());
     await tester.pump();
     expect(find.text('Portfolio'), findsWidgets);
     await tester.pump(const Duration(milliseconds: 500));

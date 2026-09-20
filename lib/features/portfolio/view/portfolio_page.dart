@@ -92,7 +92,7 @@ class _PortfolioContent extends StatelessWidget {
         slivers: [
           SliverAppBar(
             floating: true,
-            title: const Text('Portfolio'),
+            title: const Text('HemiLift'),
             actions: [
               IconButton(
                 tooltip: 'Refresh',

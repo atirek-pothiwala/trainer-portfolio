@@ -23,7 +23,7 @@ class LocalPortfolioData {
         location: 'Mumbai, India · Online worldwide',
         instagramHandle: '@fit.coach.jordan',
         instagramUrl: 'https://instagram.com/fit.coach.jordan',
-        youtubeChannelUrl: 'https://youtube.com/@FitCoachJordan',
+        youtubeChannelUrl: 'https://youtube.com/@HemiLift',
         skills: const [
           Skill(name: 'Hypertrophy Programming', level: 5, category: 'Strength'),
           Skill(name: 'Fat Loss & Body Recomp', level: 5, category: 'Nutrition'),
