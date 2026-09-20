@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../data/models/certification.dart';
 import 'section_header.dart';
 
@@ -26,12 +26,15 @@ class CertificationsSection extends StatelessWidget {
           separatorBuilder: (_, __) => const SizedBox(height: 10),
           itemBuilder: (context, index) {
             final cert = certifications[index];
+            final tokens = context.tokens;
+            final colors = context.colorScheme;
+
             return Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.surface,
+                color: colors.surface,
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: const Color(0xFF2A3139)),
+                border: Border.all(color: tokens.border),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,12 +42,12 @@ class CertificationsSection extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: AppColors.accent.withValues(alpha: 0.15),
+                      color: tokens.accent.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.verified_outlined,
-                      color: AppColors.accent,
+                      color: tokens.accent,
                       size: 22,
                     ),
                   ),
@@ -65,7 +68,7 @@ class CertificationsSection extends StatelessWidget {
                           '${cert.issuer} · ${cert.year}',
                           style:
                               Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.textSecondary,
+                                    color: tokens.textSecondary,
                                   ),
                         ),
                         const SizedBox(height: 6),

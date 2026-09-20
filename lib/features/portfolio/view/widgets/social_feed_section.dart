@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../core/utils/url_launcher_helper.dart';
 import '../../../../data/models/social_post.dart';
 import 'section_header.dart';
@@ -19,6 +19,8 @@ class SocialFeedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = context.tokens;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -29,14 +31,14 @@ class SocialFeedSection extends StatelessWidget {
         _PlatformBlock(
           title: 'Instagram',
           icon: Icons.camera_alt_outlined,
-          color: AppColors.instagram,
+          color: tokens.instagram,
           posts: instagramPosts,
         ),
         const SizedBox(height: 8),
         _PlatformBlock(
           title: 'YouTube',
           icon: Icons.play_circle_outline,
-          color: AppColors.youtube,
+          color: tokens.youtube,
           posts: youtubePosts,
         ),
       ],
@@ -100,9 +102,11 @@ class _PostTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final date = DateFormat('MMM d, yyyy').format(post.publishedAt);
+    final tokens = context.tokens;
+    final colors = context.colorScheme;
 
     return Material(
-      color: AppColors.surface,
+      color: colors.surface,
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
         onTap: () => openExternalUrl(post.postUrl),
@@ -111,7 +115,7 @@ class _PostTile extends StatelessWidget {
           width: 260,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: const Color(0xFF2A3139)),
+            border: Border.all(color: tokens.border),
           ),
           clipBehavior: Clip.antiAlias,
           child: Row(
@@ -144,7 +148,7 @@ class _PostTile extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: AppColors.textSecondary,
+                              color: tokens.textSecondary,
                               fontSize: 11,
                             ),
                       ),
@@ -152,7 +156,7 @@ class _PostTile extends StatelessWidget {
                       Text(
                         date,
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                              color: AppColors.textSecondary,
+                              color: tokens.textSecondary,
                             ),
                       ),
                     ],

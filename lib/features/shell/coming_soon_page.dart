@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/theme/app_theme.dart';
+import '../../core/theme/app_theme_tokens.dart';
 
 class ComingSoonPage extends StatelessWidget {
   const ComingSoonPage({
@@ -18,6 +18,9 @@ class ComingSoonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = context.tokens;
+    final colors = context.colorScheme;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -27,17 +30,17 @@ class ComingSoonPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: AppColors.surface,
+                color: colors.surface,
                 shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFF2A3139)),
+                border: Border.all(color: tokens.border),
               ),
-              child: Icon(icon, size: 48, color: AppColors.accent),
+              child: Icon(icon, size: 48, color: tokens.accent),
             ),
             const SizedBox(height: 24),
             Text(
               phaseLabel,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: AppColors.accent,
+                    color: tokens.accent,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -54,7 +57,7 @@ class ComingSoonPage extends StatelessWidget {
               description,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: AppColors.textSecondary,
+                    color: tokens.textSecondary,
                     height: 1.5,
                   ),
             ),

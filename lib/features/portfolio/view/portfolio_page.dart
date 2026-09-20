@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/theme/app_theme.dart';
+import '../../../core/theme/app_theme_tokens.dart';
 import '../../../data/models/trainer_profile.dart';
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
@@ -42,8 +42,8 @@ class _LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(color: AppColors.accent),
+    return Center(
+      child: CircularProgressIndicator(color: context.tokens.accent),
     );
   }
 }
@@ -80,7 +80,7 @@ class _PortfolioContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      color: AppColors.accent,
+      color: context.tokens.accent,
       onRefresh: () async {
         context.read<PortfolioBloc>().add(const PortfolioRefreshRequested());
         await context.read<PortfolioBloc>().stream.firstWhere(
@@ -116,7 +116,7 @@ class _PortfolioContent extends StatelessWidget {
               child: Text(
                 profile.bio,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: AppColors.textSecondary,
+                      color: context.tokens.textSecondary,
                       height: 1.55,
                     ),
               ),

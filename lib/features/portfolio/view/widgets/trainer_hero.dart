@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../data/models/trainer_profile.dart';
 
 class TrainerHero extends StatelessWidget {
@@ -11,17 +11,18 @@ class TrainerHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = context.tokens;
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 8, 20, 0),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFF1A2229), Color(0xFF12161C)],
+          colors: [tokens.heroGradientStart, tokens.heroGradientEnd],
         ),
-        border: Border.all(color: const Color(0xFF2A3139)),
+        border: Border.all(color: tokens.border),
       ),
       child: Column(
         children: [
@@ -34,7 +35,7 @@ class TrainerHero extends StatelessWidget {
               fit: BoxFit.cover,
               placeholder: (_, __) => Container(
                 height: 200,
-                color: AppColors.surfaceElevated,
+                color: tokens.surfaceElevated,
               ),
             ),
           ),
@@ -50,7 +51,7 @@ class TrainerHero extends StatelessWidget {
             profile.title,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: AppColors.accent,
+                  color: tokens.accent,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -59,7 +60,7 @@ class TrainerHero extends StatelessWidget {
             profile.tagline,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondary,
+                  color: tokens.textSecondary,
                 ),
           ),
           const SizedBox(height: 16),
@@ -105,7 +106,7 @@ class _StatChip extends StatelessWidget {
         Text(
           sublabel,
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: AppColors.textSecondary,
+                color: context.tokens.textSecondary,
               ),
         ),
       ],

@@ -8,6 +8,19 @@ Flutter app (mobile, web, and desktop targets) for a personal trainer portfolio 
 - **flutter_bloc** + **equatable** for state management
 - Dummy data in `lib/data/datasources/local_portfolio_data.dart` (swap for API/CMS later)
 
+## Light & dark theme
+
+- `buildLightTheme()` / `buildDarkTheme()` in `lib/core/theme/app_theme.dart`
+- Semantic colors via `AppThemeTokens` — use `context.tokens` in widgets (not hard-coded colors)
+- `ThemeModeCubit` drives `MaterialApp.themeMode` (defaults to **system**)
+- `ThemePreferencesRepository` is a stub today; implement with `shared_preferences` when you add a settings toggle:
+
+```dart
+context.read<ThemeModeCubit>().useLightTheme();
+context.read<ThemeModeCubit>().useDarkTheme();
+context.read<ThemeModeCubit>().useSystemTheme();
+```
+
 ## Phase 1 features
 
 - Trainer profile, bio, and stats

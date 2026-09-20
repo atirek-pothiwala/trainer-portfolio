@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../core/utils/url_launcher_helper.dart';
 import '../../../../data/models/trainer_profile.dart';
 import 'section_header.dart';
@@ -12,6 +12,9 @@ class InstagramConnectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = context.tokens;
+    final colors = context.colorScheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,12 +30,12 @@ class InstagramConnectCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               gradient: LinearGradient(
                 colors: [
-                  AppColors.instagram.withValues(alpha: 0.25),
-                  AppColors.surface,
+                  tokens.instagram.withValues(alpha: 0.25),
+                  colors.surface,
                 ],
               ),
               border: Border.all(
-                color: AppColors.instagram.withValues(alpha: 0.4),
+                color: tokens.instagram.withValues(alpha: 0.4),
               ),
             ),
             child: Column(
@@ -40,9 +43,9 @@ class InstagramConnectCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.alternate_email,
-                      color: AppColors.instagram,
+                      color: tokens.instagram,
                     ),
                     const SizedBox(width: 8),
                     Text(
@@ -60,7 +63,7 @@ class InstagramConnectCard extends StatelessWidget {
                   '3. Send a DM with your goal (fat loss, muscle, sport, etc.)\n'
                   '4. Your coach or the team will reply within 24 hours',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.textSecondary,
+                        color: tokens.textSecondary,
                         height: 1.5,
                       ),
                 ),
@@ -73,7 +76,7 @@ class InstagramConnectCard extends StatelessWidget {
                         icon: const Icon(Icons.open_in_new, size: 18),
                         label: const Text('Open Instagram'),
                         style: FilledButton.styleFrom(
-                          backgroundColor: AppColors.instagram,
+                          backgroundColor: tokens.instagram,
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 14),
                         ),
@@ -84,8 +87,8 @@ class InstagramConnectCard extends StatelessWidget {
                       onPressed: () =>
                           openExternalUrl(profile.youtubeChannelUrl),
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: AppColors.textPrimary,
-                        side: const BorderSide(color: Color(0xFF2A3139)),
+                        foregroundColor: colors.onSurface,
+                        side: BorderSide(color: tokens.border),
                         padding: const EdgeInsets.symmetric(
                           vertical: 14,
                           horizontal: 16,

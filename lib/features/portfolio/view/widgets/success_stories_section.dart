@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../data/models/success_story.dart';
 import 'section_header.dart';
 
@@ -43,12 +43,15 @@ class _StoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = context.tokens;
+    final colors = context.colorScheme;
+
     return Container(
       width: 280,
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: colors.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF2A3139)),
+        border: Border.all(color: tokens.border),
       ),
       clipBehavior: Clip.antiAlias,
       child: Column(
@@ -75,7 +78,7 @@ class _StoryCard extends StatelessWidget {
                 Text(
                   story.goal,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: AppColors.textSecondary,
+                        color: tokens.textSecondary,
                       ),
                 ),
                 const SizedBox(height: 8),
@@ -83,13 +86,13 @@ class _StoryCard extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: AppColors.accent.withValues(alpha: 0.15),
+                    color: tokens.accent.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
                     story.result,
                     style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          color: AppColors.accent,
+                          color: tokens.accent,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -108,7 +111,7 @@ class _StoryCard extends StatelessWidget {
                 Text(
                   story.duration,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: AppColors.textSecondary,
+                        color: tokens.textSecondary,
                       ),
                 ),
               ],

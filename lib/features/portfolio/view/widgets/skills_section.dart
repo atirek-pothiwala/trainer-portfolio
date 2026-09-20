@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/app_theme_tokens.dart';
 import '../../../../data/models/skill.dart';
 import 'section_header.dart';
 
@@ -38,13 +38,16 @@ class _SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tokens = context.tokens;
+    final colors = context.colorScheme;
+
     return Container(
       width: 160,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: colors.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFF2A3139)),
+        border: Border.all(color: tokens.border),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +55,7 @@ class _SkillCard extends StatelessWidget {
           Text(
             skill.category,
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: AppColors.accent,
+                  color: tokens.accent,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -70,9 +73,7 @@ class _SkillCard extends StatelessWidget {
               return Icon(
                 Icons.circle,
                 size: 8,
-                color: filled
-                    ? AppColors.accent
-                    : AppColors.surfaceElevated,
+                color: filled ? tokens.accent : tokens.surfaceElevated,
               );
             }),
           ),
