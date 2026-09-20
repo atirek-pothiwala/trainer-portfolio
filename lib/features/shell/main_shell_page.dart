@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/widgets/animated_instagram_mesh_background.dart';
+import '../../core/widgets/app_name_text.dart';
+import '../../core/widgets/user_profile_avatar.dart';
+import '../../data/repositories/app_user_repository.dart';
 import '../portfolio/view/portfolio_page.dart';
 import 'coming_soon_page.dart';
 
@@ -38,9 +42,19 @@ class _MainShellPageState extends State<MainShellPage> {
           alpha: Theme.of(context).brightness == Brightness.dark ? 0.82 : 0.92,
         );
 
+    final appUser = context.read<AppUserRepository>().currentUser;
+
     return AnimatedInstagramMeshBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          title: const AppNameText(fontSize: 26),
+          actions: [UserProfileAvatar(user: appUser)],
+        ),
         body: IndexedStack(
           index: _index,
           children: const [

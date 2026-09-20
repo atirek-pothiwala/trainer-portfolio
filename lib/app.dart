@@ -5,6 +5,7 @@ import 'core/theme/app_branding.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_mode_cubit.dart';
 import 'core/theme/theme_preferences_repository.dart';
+import 'data/repositories/app_user_repository.dart';
 import 'data/repositories/portfolio_repository.dart';
 import 'features/portfolio/bloc/portfolio_bloc.dart';
 import 'features/portfolio/bloc/portfolio_event.dart';
@@ -18,6 +19,7 @@ class HemiLiftApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(create: (_) => const PortfolioRepository()),
+        RepositoryProvider(create: (_) => const AppUserRepository()),
         RepositoryProvider<ThemePreferencesRepository>(
           create: (_) => const NoOpThemePreferencesRepository(),
         ),

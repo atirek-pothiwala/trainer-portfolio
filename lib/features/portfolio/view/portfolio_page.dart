@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/theme/app_theme_tokens.dart';
-import '../../../core/widgets/app_name_text.dart';
 import '../../../data/models/trainer_profile.dart';
 import '../bloc/portfolio_bloc.dart';
 import '../bloc/portfolio_event.dart';
@@ -92,29 +90,6 @@ class _PortfolioContent extends StatelessWidget {
       child: CustomScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         slivers: [
-          SliverAppBar(
-            floating: true,
-            backgroundColor: Colors.transparent,
-            surfaceTintColor: Colors.transparent,
-            elevation: 0,
-            scrolledUnderElevation: 0,
-            title: const AppNameText(fontSize: 26),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: Tooltip(
-                  message: profile.name,
-                  child: CircleAvatar(
-                    radius: 18,
-                    backgroundColor: context.tokens.surfaceElevated,
-                    backgroundImage: CachedNetworkImageProvider(
-                      profile.profileImageUrl,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
           SliverToBoxAdapter(child: TrainerHero(profile: profile)),
           SliverToBoxAdapter(
             child: SectionHeader(
