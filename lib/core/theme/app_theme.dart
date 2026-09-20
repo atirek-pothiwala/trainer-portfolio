@@ -33,7 +33,7 @@ ThemeData _buildTheme({
   final base = ThemeData(
     useMaterial3: true,
     brightness: brightness,
-    scaffoldBackgroundColor: background,
+    scaffoldBackgroundColor: Colors.transparent,
     colorScheme: ColorScheme(
       brightness: brightness,
       primary: tokens.accent,

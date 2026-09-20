@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_theme_tokens.dart';
+import '../../../../core/theme/frosted_surface.dart';
 import '../../../../data/models/skill.dart';
 import 'section_header.dart';
 
@@ -39,13 +40,12 @@ class _SkillCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final colors = context.colorScheme;
 
     return Container(
       width: 160,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: colors.surface,
+        color: frostedSurface(context),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: tokens.border),
       ),

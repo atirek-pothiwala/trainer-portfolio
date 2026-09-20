@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/theme/app_theme_tokens.dart';
+import '../../../../core/theme/frosted_surface.dart';
 import '../../../../core/utils/url_launcher_helper.dart';
 import '../../../../data/models/social_post.dart';
 import 'section_header.dart';
@@ -103,10 +104,9 @@ class _PostTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final date = DateFormat('MMM d, yyyy').format(post.publishedAt);
     final tokens = context.tokens;
-    final colors = context.colorScheme;
 
     return Material(
-      color: colors.surface,
+      color: frostedSurface(context),
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
         onTap: () => openExternalUrl(post.postUrl),

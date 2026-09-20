@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_theme_tokens.dart';
+import '../../../../core/theme/frosted_surface.dart';
 import '../../../../data/models/success_story.dart';
 import 'section_header.dart';
 
@@ -49,14 +50,13 @@ class _StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final colors = context.colorScheme;
 
     return SizedBox(
       width: _kStoryCardWidth,
       height: _kStoryCardHeight,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: colors.surface,
+          color: frostedSurface(context),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: tokens.border),
         ),

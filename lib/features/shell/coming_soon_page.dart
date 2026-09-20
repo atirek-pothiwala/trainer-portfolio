@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme_tokens.dart';
+import '../../core/theme/frosted_surface.dart';
 
 class ComingSoonPage extends StatelessWidget {
   const ComingSoonPage({
@@ -19,7 +20,6 @@ class ComingSoonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = context.tokens;
-    final colors = context.colorScheme;
 
     return Center(
       child: Padding(
@@ -30,7 +30,7 @@ class ComingSoonPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: colors.surface,
+                color: frostedSurface(context),
                 shape: BoxShape.circle,
                 border: Border.all(color: tokens.border),
               ),

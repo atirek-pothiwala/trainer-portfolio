@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_theme_tokens.dart';
+import '../../../../core/theme/frosted_surface.dart';
 import '../../../../data/models/trainer_profile.dart';
 
 class TrainerHero extends StatelessWidget {
@@ -17,11 +18,7 @@ class TrainerHero extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [tokens.heroGradientStart, tokens.heroGradientEnd],
-        ),
+        color: frostedSurface(context),
         border: Border.all(color: tokens.border),
       ),
       child: Column(

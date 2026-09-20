@@ -93,6 +93,10 @@ class _PortfolioContent extends StatelessWidget {
         slivers: [
           SliverAppBar(
             floating: true,
+            backgroundColor: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+            elevation: 0,
+            scrolledUnderElevation: 0,
             title: const AppNameText(fontSize: 26),
             actions: [
               IconButton(

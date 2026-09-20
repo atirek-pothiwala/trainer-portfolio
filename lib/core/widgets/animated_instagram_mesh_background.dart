@@ -8,12 +8,16 @@ class AnimatedInstagramMeshBackground extends StatefulWidget {
     super.key,
     required this.child,
     this.borderRadius = BorderRadius.zero,
-    this.duration = const Duration(seconds: 10),
+    this.duration = const Duration(seconds: 12),
+    this.vignetteOpacity,
   });
 
   final Widget child;
   final BorderRadius borderRadius;
   final Duration duration;
+
+  /// Darkens the mesh so foreground text stays readable. Defaults by theme.
+  final double? vignetteOpacity;
 
   @override
   State<AnimatedInstagramMeshBackground> createState() =>
@@ -42,10 +46,13 @@ class _AnimatedInstagramMeshBackgroundState
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
+    final vignette = widget.vignetteOpacity ??
+        (isDark ? 0.22 : 0.06);
+
     return ClipRRect(
       borderRadius: widget.borderRadius,
       child: Stack(
-        fit: StackFit.passthrough,
+        fit: StackFit.expand,
         children: [
           Positioned.fill(
             child: AnimatedBuilder(
@@ -63,9 +70,7 @@ class _AnimatedInstagramMeshBackgroundState
           Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: isDark
-                    ? Colors.black.withValues(alpha: 0.35)
-                    : Colors.black.withValues(alpha: 0.08),
+                color: Colors.black.withValues(alpha: vignette),
               ),
             ),
           ),
