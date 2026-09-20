@@ -1,11 +1,11 @@
 {
-    "name": "trainer_portfolio",
-    "short_name": "trainer_portfolio",
+    "name": "Fit Coach",
+    "short_name": "Fit Coach",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0D0F12",
+    "theme_color": "#3DDC97",
+    "description": "Trainer portfolio and fitness app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
