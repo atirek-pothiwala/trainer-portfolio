@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,12 +100,18 @@ class _PortfolioContent extends StatelessWidget {
             scrolledUnderElevation: 0,
             title: const AppNameText(fontSize: 26),
             actions: [
-              IconButton(
-                tooltip: 'Refresh',
-                onPressed: () => context
-                    .read<PortfolioBloc>()
-                    .add(const PortfolioRefreshRequested()),
-                icon: const Icon(Icons.refresh),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: Tooltip(
+                  message: profile.name,
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundColor: context.tokens.surfaceElevated,
+                    backgroundImage: CachedNetworkImageProvider(
+                      profile.profileImageUrl,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
