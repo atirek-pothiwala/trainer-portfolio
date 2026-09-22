@@ -17,7 +17,7 @@ class BrandSocialIcon extends StatelessWidget {
   })  : _icon = FontAwesomeIcons.youtube,
         _semanticsLabel = 'YouTube';
 
-  final IconData _icon;
+  final FaIconData _icon;
   final String _semanticsLabel;
   final double size;
   final Color? color;

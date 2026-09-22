@@ -59,7 +59,7 @@ ThemeData _buildTheme({
       elevation: 0,
       centerTitle: false,
     ),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: surface,
       elevation: isDark ? 0 : 1,
       shadowColor: isDark ? null : Colors.black.withValues(alpha: 0.06),

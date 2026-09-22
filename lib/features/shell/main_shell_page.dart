@@ -6,6 +6,7 @@ import '../../core/widgets/app_name_text.dart';
 import '../../core/widgets/user_profile_avatar.dart';
 import '../../data/repositories/app_user_repository.dart';
 import '../portfolio/view/portfolio_page.dart';
+import '../workouts/view/workouts_page.dart';
 import 'coming_soon_page.dart';
 
 class MainShellPage extends StatefulWidget {
@@ -59,14 +60,7 @@ class _MainShellPageState extends State<MainShellPage> {
           index: _index,
           children: const [
             PortfolioPage(),
-            ComingSoonPage(
-              phaseLabel: 'Phase 2',
-              title: 'Workout tracking',
-              description:
-                  'Log sets, reps, and rest timers — inspired by apps like Hevy. '
-                  'Routines, exercise library, and progress charts coming next.',
-              icon: Icons.fitness_center,
-            ),
+            WorkoutsPage(),
             ComingSoonPage(
               phaseLabel: 'Phase 3',
               title: 'Consultant service',
